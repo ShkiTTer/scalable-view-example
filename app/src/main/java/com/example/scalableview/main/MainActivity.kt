@@ -5,7 +5,9 @@ import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.scalableview.R
+import com.example.scalableview.common.extensions.getColumns
 import com.example.scalableview.common.model.SizeType
+import com.example.scalableview.common.view.ScalableView
 import com.example.scalableview.databinding.ActivityMainBinding
 import com.example.scalableview.list.ListActivity
 
@@ -41,7 +43,23 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         }
 
         scalableView.setOnClickListener {
-            startActivity(ListActivity.newIntent(this@MainActivity, scalableView.size))
+            startActivity(
+                ListActivity.newIntent(
+                    context = this@MainActivity,
+                    sizeType = scalableView.size,
+                    viewType = scalableView.viewType
+                )
+            )
+        }
+
+        twoGridButton.setOnClickListener {
+            scalableView.viewType = ScalableView.ViewType.RECTANGLE
+            currentColumnsText.text = "Selected columns: 2"
+        }
+
+        threeGridButton.setOnClickListener {
+            scalableView.viewType = ScalableView.ViewType.SQUARE
+            currentColumnsText.text = "Selected columns: 3"
         }
     }
 }

@@ -11,6 +11,7 @@ import com.example.scalableview.common.view.ScalableView
 class ListRecyclerAdapter : RecyclerView.Adapter<ListRecyclerAdapter.ViewHolder>() {
 
     private var sizeType = SizeType.MEDIUM
+    private var scalableViewType = ScalableView.ViewType.RECTANGLE
 
     override fun getItemCount(): Int = 5
 
@@ -29,9 +30,17 @@ class ListRecyclerAdapter : RecyclerView.Adapter<ListRecyclerAdapter.ViewHolder>
         notifyDataSetChanged()
     }
 
+    fun setItemViewType(viewType: ScalableView.ViewType) {
+        this.scalableViewType = viewType
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         init {
-            (view as ScalableView).size = sizeType
+            (view as ScalableView).apply {
+                size = sizeType
+                viewType = scalableViewType
+            }
         }
     }
 }

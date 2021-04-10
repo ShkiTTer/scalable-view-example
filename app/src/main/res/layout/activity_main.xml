@@ -16,8 +16,8 @@
 
     <com.example.scalableview.common.view.ScalableView
         android:id="@+id/scalableView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="@id/horizontalGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,5 +43,39 @@
         app:layout_constraintTop_toBottomOf="@id/changeSizeText"
         tools:max="4"
         tools:progress="2" />
+
+    <TextView
+        android:id="@+id/currentColumnsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Selected columns: 2"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/sizeSeekBar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/twoGridButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="2 columns"
+        app:layout_constraintEnd_toStartOf="@+id/threeGridButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentColumnsText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/threeGridButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="3 columns"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/twoGridButton"
+        app:layout_constraintTop_toBottomOf="@id/currentColumnsText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
